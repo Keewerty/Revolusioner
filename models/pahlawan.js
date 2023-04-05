@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
         },
         gambar: {
-            type: Sequelize.STRING,
+            type: Sequelize.BLOB,
         },
         biografi: {
             type: Sequelize.TEXT,

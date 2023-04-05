@@ -37,7 +37,7 @@ exports.update = async (req, res) => {
     const id = req.params.id
     try{
         const krono = await Krono.findByPk(id, {rejectOnEmpty: true})
-        quiz.update(req.body,{
+        krono.update(req.body,{
             where: {id}
         })
         res.json({
@@ -46,7 +46,7 @@ exports.update = async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({
-            message: error.message || "some error occured while retrieving quiz" ,
+            message: error.message || "some error occured while retrieving data" ,
             data: null,
         });
     }
@@ -79,7 +79,7 @@ exports.findOne = async (req, res) => {
         })
     } catch (error) {
         res.status(500).json({
-            message: error.message || "some error occured while retrieving quiz" ,
+            message: error.message || "some error occured while retrieving data" ,
             data: null,
         });
     }
