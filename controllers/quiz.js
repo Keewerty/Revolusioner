@@ -6,7 +6,7 @@ exports.create = async (req, res) => {
     try{
         const data = await Quiz.create(req.body)
         res.json({
-            message: "Asik, data berhasil ditambahkan",
+            message: "Quizberhasil ditambahkan",
             data: data,
         })
     } catch (error) {
@@ -22,7 +22,7 @@ exports.getAll = async (req, res) => {
     try{
         const quizzes = await Quiz.findAll()
         res.json({
-            message: "quiz berhasil ditampilkan",
+            message: "Quiz berhasil ditampilkan",
             data: quizzes,
         })
     } catch (error) {
@@ -58,7 +58,7 @@ exports.delete = async (req, res) => {
         const quiz = await Quiz.findByPk(id, {rejectOnEmpty: true})
         quiz.destroy()
         res.json({
-            message: "quiz berhasil dihapus",
+            message: "Quiz berhasil dihapus",
             data: quiz,
         })
     } catch (error) {
@@ -74,7 +74,7 @@ exports.findOne = async (req, res) => {
     try{
         const quiz = await Quiz.findByPk(id, {rejectOnEmpty: true})
         res.json({
-            message: `quiz berhasil ditampilkan dengan id=${id}.`,
+            message: `Quiz berhasil ditampilkan dengan id=${id}.`,
             data: quiz,
         })
     } catch (error) {
@@ -83,34 +83,4 @@ exports.findOne = async (req, res) => {
             data: null,
         });
     }
-}
-
-exports.getByCategoryId = async (req, res) => {
-
-        const id=req.params.id
-        const quizzes = await Quiz.findAll({
-            where : {
-                categoryId : id
-            }
-        })
-        res.json({
-            message: `Quizzes retrieved succesfully with categoryId=${id}.`,
-            data: quizzes,
-        });
-
-}
-
-exports.getByLevelId = async (req, res) => {
-
-    const id=req.params.id
-    const quizzes = await Quiz.findAll({
-        where : {
-            levelId : id
-        }
-    })
-    res.json({
-        message: `Quizzes retrieved succesfully with levelId=${id}.`,
-        data: quizzes,
-    });
-
 }
