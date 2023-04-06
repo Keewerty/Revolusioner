@@ -84,3 +84,18 @@ exports.findOne = async (req, res) => {
         });
     }
 }
+
+exports.getByCategoryId = async (req, res) => {
+
+    const id=req.params.id
+    const quizzes = await Quiz.findAll({
+        where : {
+            categoryId : id
+        }
+    })
+    res.json({
+        message: `Quizzes retrieved succesfully with categoryId=${id}.`,
+        data: quizzes,
+    });
+
+}

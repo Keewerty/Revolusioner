@@ -48,11 +48,12 @@ exports.submitMany = async (req,res) => {
                 order: [ ['id','DESC'] ],
             });
             if(quiz.key == jobsheet.answer[i]){
-                benar = benar + 1
+                benar = benar + 1 / totalSoal * 100
             }
         }
         res.status(200).json({
-            message: `benar ${benar} dari ${totalSoal} soal`
+            //message: `benar ${benar} dari ${totalSoal} soal`
+            message: `Nilai anda adalah ${benar}/100`
         })
     }catch (e) {
         res.status(500).json({message: e.message});

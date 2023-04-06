@@ -12,6 +12,9 @@ const Quiz = sequelize.define('quiz', {
     key: {
         type: Sequelize.STRING,
     },
+    categoryId:  {
+        type: Sequelize.INTEGER,
+    },
 });
 return Quiz;
 
